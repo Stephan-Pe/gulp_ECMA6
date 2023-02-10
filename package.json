@@ -1,0 +1,41 @@
+{
+  "name": "gulpfile.js",
+  "version": "1.0.0",
+  "description": "gulp ecma6",
+  "main": "Gulpfile.js/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "gulp",
+    "dev": "gulp serve",
+    "prod": "cross-env NODE_ENV=prod gulp"
+  },
+  "author": "Stephan",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.11",
+    "cross-env": "^7.0.3",
+    "del": "^7.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-minify-inline": "^1.1.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.58.0"
+  },
+  "overrides": {
+    "chokidar": "3.5.3",
+    "glob-parent": "6.0.2",
+    "nth-check": "2.1.1",
+    "terser": "5.16.1",
+    "got": "11.8.6",
+    "semver-regex": "3.1.4",
+    "ua-parser-js": "1.0.33"
+  }
+}
