@@ -22,7 +22,6 @@ function webserver() {
     });
 }
 
-
 function browserSyncReload(done) {
     browserSync.reload();
     done();
