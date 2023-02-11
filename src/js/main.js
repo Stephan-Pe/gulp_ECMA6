@@ -1,5 +1,5 @@
-import hello from './modules/mymodule.js';
+import { userData } from "./modules/userComponent.js";
 
-window.addEventListener('DOMContentLoaded', (e) => {
-    hello();
-})
+window.addEventListener('load', () => {
+    userData();
+});

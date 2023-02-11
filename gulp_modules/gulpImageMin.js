@@ -1,14 +1,17 @@
-import gulp from 'gulp';
-import gulpIf from 'gulp-if';
-import imagemin from 'gulp-imagemin';
-const isProd = process.env.NODE_ENV === 'prod';
+import gulp from "gulp";
+import gulpIf from "gulp-if";
+import imagemin from "gulp-imagemin";
+
 import imageminGifsicle from "imagemin-gifsicle";
 import imageminMozjpeg from "imagemin-mozjpeg";
 import imageminOptipng from "imagemin-optipng";
 import imageminSvgo from "imagemin-svgo";
 
+const isProd = process.env.NODE_ENV === "prod";
+const { series, parallel, src, dest, task } = gulp;
+
 const imageMin = () => {
-    return gulp.src('src/img/**/*.*')
+    return gulp.src("src/img/**/*.*")
         .pipe(gulpIf(isProd, imagemin([
             imageminGifsicle({ interlaced: true }),
             imageminMozjpeg({ quality: 75, progressive: true }),
@@ -20,7 +23,7 @@ const imageMin = () => {
                 ]
             })
         ])))
-        .pipe(gulp.dest('docs/img/'));
+        .pipe(dest("docs/img/"));
 }
 
 export default imageMin;

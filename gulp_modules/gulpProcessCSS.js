@@ -1,13 +1,14 @@
-import gulp from 'gulp';
-import dartSass from 'sass';
-import gulpSass from 'gulp-sass';
+import gulp from "gulp";
+import dartSass from "sass";
+import gulpSass from "gulp-sass";
 import sourcemaps from "gulp-sourcemaps";
 import cleanCSS from "gulp-clean-css";
 const sass = gulpSass(dartSass);
+const { series, parallel, src, dest, task } = gulp;
 
-import gulpIf from 'gulp-if';
+import gulpIf from "gulp-if";
 
-const isProd = process.env.NODE_ENV === 'prod';
+const isProd = process.env.NODE_ENV === "prod";
 
 
 function processCSS() {
@@ -21,7 +22,7 @@ function processCSS() {
         )
         .pipe(gulpIf(!isProd, sourcemaps.write()))
         .pipe(gulpIf(isProd, cleanCSS()))
-        .pipe(gulp.dest("docs/css/"));
+        .pipe(dest("docs/css/"));
 }
 
 export default processCSS;
