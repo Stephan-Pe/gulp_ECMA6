@@ -1,9 +1,9 @@
 import gulp from "gulp";
 import eslint from "gulp-eslint";
 
-const { series, parallel, src, dest, task } = gulp;
+const { series, parallel, watch, src, dest, task } = gulp;
 
-// import gulpIf from "gulp-if"; /* werden später noch gebracht */
+// import gulpIf from "gulp-if"; /* for later usage */
 
 // const isProd = process.env.NODE_ENV === "prod";
 
@@ -37,26 +37,28 @@ function webserver() {
 }
 
 function browserSyncReload(done) {
+
     browserSync.reload();
     done();
 }
 
 function watchFiles() {
-    gulp.watch("src/**/*.html", gulp.series(processHTML, browserSyncReload));
-    gulp.watch("src/**/*.scss", gulp.series(processCSS, browserSyncReload));
-    gulp.watch('src/**/*.js', gulp.series(processJS, ['eslint'], browserSyncReload));
-    gulp.watch('src/img/**/*.*', gulp.series(imageMin, browserSyncReload));
-    return;
-}
+    watch("src/**/*.html", series(processHTML, browserSyncReload));
+    watch("src/**/*.scss", series(processCSS, browserSyncReload));
+    watch('src/**/*.js', series(processJS, ['eslint'], browserSyncReload));
+    watch('src/img/**/*.*', series(imageMin, browserSyncReload));
 
+
+
+}
+// clean docs or dist folder before publishing your work to production
 async function runClean(done) {
     await deleteAsync("docs");
     done();
 }
 
-task("watch", parallel(webserver, watchFiles));
+task("serve", parallel(webserver, watchFiles));
 
-task("serve", parallel(processCSS, processHTML, processJS, imageMin, webserver, watchFiles));
 
 task("build", series(runClean, parallel(processHTML, processCSS, processJS, processJson, imageMin)));
 

@@ -12,11 +12,13 @@ export async function userData() {
             mode: 'no-cors'
         });
         let userData = globalData.users;
+
         const userContainer = document.querySelector('#database');
         userData.forEach(user => {
             const el = document.createElement('user-card');
             el.user = user;
-            if (userContainer) userContainer.appendChild(el);
+
+            userContainer?.appendChild(el);
 
         });
     } catch (error) {

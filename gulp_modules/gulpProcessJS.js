@@ -1,7 +1,7 @@
 import gulp from "gulp";
 import babel from "gulp-babel";
 import webpack from "webpack-stream";
-const { series, parallel, src, dest, task } = gulp;
+const { dest } = gulp;
 
 function processJS() {
     return gulp

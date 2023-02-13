@@ -8,7 +8,7 @@ import imageminOptipng from "imagemin-optipng";
 import imageminSvgo from "imagemin-svgo";
 
 const isProd = process.env.NODE_ENV === "prod";
-const { series, parallel, src, dest, task } = gulp;
+const { dest } = gulp;
 
 const imageMin = () => {
     return gulp.src("src/img/**/*.*")

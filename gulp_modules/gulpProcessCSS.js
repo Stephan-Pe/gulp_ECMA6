@@ -4,7 +4,7 @@ import gulpSass from "gulp-sass";
 import sourcemaps from "gulp-sourcemaps";
 import cleanCSS from "gulp-clean-css";
 const sass = gulpSass(dartSass);
-const { series, parallel, src, dest, task } = gulp;
+const { dest } = gulp;
 
 import gulpIf from "gulp-if";
 

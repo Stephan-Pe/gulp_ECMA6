@@ -1,19 +1,23 @@
 class UserCard extends HTMLElement {
 
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: 'open' });
-    }
+  constructor() {
+    super();
+    this.root = this.attachShadow({ mode: 'closed' });
+  }
 
-    set user(user) {
-        this.root.innerHTML = `
+  set user(user) {
+    this.root.innerHTML = `
         <style>
-        .card-4 {
+        :host {
             transition: all 350ms ease-in;
             background-color: #091034;
             color: #FBA90A;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 5px 5px 5px #091034;
+            display: block;
           }
-          .card-4:hover, .card-4:focus {
+          :host(:hover), :host(:focus) {
             background-color: #FBA90A;
             color: #091034;
             transform: translateY(-1rem);
@@ -47,11 +51,6 @@ class UserCard extends HTMLElement {
             flex-direction: column;
             gap: 0.5rem;
           }
-          [class*=card-] {
-            padding: 0.5rem 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 5px 5px 5px #091034;
-          }
         </style>
                 <div id="${user.id}" class="card-4">
                     <div class="avatar">
@@ -67,7 +66,7 @@ class UserCard extends HTMLElement {
                     </div>
                 </div>
                 `;
-    }
+  }
 }
 
 customElements.define('user-card', UserCard);

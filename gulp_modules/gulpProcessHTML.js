@@ -4,8 +4,11 @@ import htmlmin from "gulp-htmlmin";
 import htmlreplace from "gulp-html-replace";
 import fileinclude from "gulp-file-include";
 import minifyInline from "gulp-minify-inline";
+/*if you work with google maps or mapbox i recommend using gulp-minify-inline 
+and place the map script inside your document*/
+
 const isProd = process.env.NODE_ENV === "prod";
-const { series, parallel, src, dest, task } = gulp;
+const { dest } = gulp;
 
 const htmlFile = ["src/*.html"];
 

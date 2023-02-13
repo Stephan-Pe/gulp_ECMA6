@@ -1,0 +1,25 @@
+.nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    background: #1E9600;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF0000, #FFF200, #1E9600);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF0000, #FFF200, #1E9600);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+    a {
+        color: #091034;
+        font-weight: 600;
+        font-size: 1.25rem;
+
+        &:hover,
+        &:focus {
+            color: blueviolet;
+        }
+    }
+
+}
