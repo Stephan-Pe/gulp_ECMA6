@@ -13,3 +13,9 @@ but in the end we can use the latest npm packages what is at last not bad ;-)
 1. clone repository
 2. run mpn install
 3. Happy coding 🤓
+
+## issue on gulp-imagemin with svg files
+
+as long as you don't need svg's or don't need to minify them everything is fine
+
+[github gulp-imagemin issue tracker](https://github.com/imagemin/imagemin/issues/411)

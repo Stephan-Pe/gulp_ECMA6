@@ -10,7 +10,7 @@ import imageminSvgo from "imagemin-svgo";
 const isProd = process.env.NODE_ENV === "prod";
 const { dest } = gulp;
 
-const imageMin = () => {
+function imageMin() {
     return gulp.src("src/img/**/*.*")
         .pipe(gulpIf(isProd, imagemin([
             imageminGifsicle({ interlaced: true }),
