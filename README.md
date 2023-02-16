@@ -29,13 +29,10 @@ node:internal/process/promises:288
 triggerUncaughtException(err, true /_ fromPromise _/);
 ^
 PluginError: Plugin name should be specified
-at resolvePluginConfig (C:\Projects\gulp-ecma6\node_modules\svgo\lib\svgo\config.js:113:13)
-at Array.map (<anonymous>)
-at optimize (C:\Projects\gulp-ecma6\node_modules\svgo\lib\svgo.js:50:37)
-at optimize (C:\Projects\gulp-ecma6\node_modules\svgo\lib\svgo-node.js:97:10)
-at C:\Projects\gulp-ecma6\node_modules\imagemin-svgo\index.js:16:17
-at file:///C:/Projects/gulp-ecma6/node_modules/p-pipe/index.js:10:25.......
+at resolvePluginConfig (C:\Projects\gulp-ecma6\node_modules\svgo\lib\svgo\config.js:113:13).......
 ```
+
+complete error code at the end
 
 ## so I took the options out of the plugins array like this
 
