@@ -1,4 +1,4 @@
-# gulp_ECMA6
+# gulp_ES6
 
 ## setup for GULP type module
 

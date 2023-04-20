@@ -2,11 +2,6 @@ import gulp from "gulp";
 import gulpIf from "gulp-if";
 import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
 
-// import imageminGifsicle from "imagemin-gifsicle";
-// import imageminMozjpeg from "imagemin-mozjpeg";
-// import imageminOptipng from "imagemin-optipng";
-// import imageminSvgo from "imagemin-svgo";
-
 const isProd = process.env.NODE_ENV === "prod";
 const { dest } = gulp;
 const imgSource = "src/img/**/*.*";
