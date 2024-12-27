@@ -13,7 +13,8 @@ const { dest } = gulp;
 const htmlFile = ["src/*.html"];
 
 function processHTML() {
-    return gulp
+ 
+        return gulp
         .src(htmlFile)
         .pipe(
             fileinclude({
@@ -44,7 +45,8 @@ function processHTML() {
                 minifyInline(),
             )
         )
-        .pipe(dest("./docs"));
+        .pipe(dest("./docs"));  
+  
 }
 
 export default processHTML;

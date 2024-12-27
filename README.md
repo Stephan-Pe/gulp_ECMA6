@@ -1,5 +1,79 @@
 # gulp_ES6
 
+## working on updated version
+
+### current devDependencies
+```json
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.25.9",
+    "@babel/plugin-transform-runtime": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "babel-preset-env": "^7.0.0-beta.3",
+    "browser-sync": "^3.0.3",
+    "browserslist": "^4.24.3",
+    "cross-env": "^7.0.3",
+    "del": "^7.0.0",
+    "gulp": "^5.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-json-format": "^2.0.0",
+    "gulp-jsonminify": "^1.1.0",
+    "gulp-minify-inline": "^1.1.0",
+    "gulp-sass": "^6.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.83.0",
+    "webpack": "^5.97.1",
+    "webpack-stream": "^7.0.0"
+  },
+  "overrides": {
+    "cross-spawn": "7.0.6",
+    "got": "11.8.6",
+    "postcss": "8.4.49",
+    "semver-regex": "4.0.5",
+    "terser": "5.37.0",
+    "nth-check": "2.1.1"
+  }
+  ```
+### gulp-imagemin with encoding:false // [stackoverflow](https://stackoverflow.com/questions/78730067/gulp-imagemin-breaking-images-and-not-optimizing)
+```js
+import gulp from "gulp";
+import gulpIf from "gulp-if";
+import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
+
+const isProd = process.env.NODE_ENV === "prod";
+const { dest } = gulp;
+const imgSource = "src/img/**/*.*";
+async function imageMin() {
+    try {
+        return gulp.src([imgSource], {encoding: false})
+            .pipe(gulpIf(isProd, imagemin([
+                gifsicle({ interlaced: true }),
+                mozjpeg({ quality: 75, progressive: true }),
+                optipng({ optimizationLevel: 5 }),
+                svgo({
+                    removeViewBox: true,
+                    cleanupIDs: false
+                })
+            ])))
+            .pipe(dest("docs/img/"));
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+export default imageMin;
+
+```
+
+
 ## setup for GULP type module
 
 unfortunatly we can't get rid of package.json overrides to have no vulnerabilities

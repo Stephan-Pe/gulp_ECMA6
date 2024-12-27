@@ -7,7 +7,7 @@ const { dest } = gulp;
 const imgSource = "src/img/**/*.*";
 async function imageMin() {
     try {
-        return gulp.src([imgSource])
+        return gulp.src([imgSource], {encoding: false})
             .pipe(gulpIf(isProd, imagemin([
                 gifsicle({ interlaced: true }),
                 mozjpeg({ quality: 75, progressive: true }),
