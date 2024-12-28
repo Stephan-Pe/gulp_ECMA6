@@ -1,6 +1,6 @@
 import gulp from "gulp";
 import gulpIf from "gulp-if";
-import htmlmin from "gulp-htmlmin";
+import minify from "gulp-minifier";
 import htmlreplace from "gulp-html-replace";
 import fileinclude from "gulp-file-include";
 import minifyInline from "gulp-minify-inline";
@@ -34,8 +34,12 @@ function processHTML() {
         .pipe(
             gulpIf(
                 isProd,
-                htmlmin({
-                    collapseWhitespace: true,
+                minify({
+                    minify: true,
+                    minifyHTML: {
+                      collapseWhitespace: true,
+                      conservativeCollapse: true,
+                    }
                 })
             )
         )

@@ -1,9 +1,54 @@
-# gulp_ES6
+# gulp_ESNEXT
 
-## working on updated version
+If you can live without mini- or uglifying inline you will have 0 vulnerabilities and you are good to go ;-) Happy coding!
+
+```bash
+SPDEC@Stephan-P1G2 MINGW64 /d/Projects/gulp-ES6 (main)
+$ node --version
+v20.12.2
+
+SPDEC@Stephan-P1G2 MINGW64 /d/Projects/gulp-ES6 (main)
+$ npm --version
+10.9.2
+```
+
+## updated version
+
+```bash
+3 high severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+SPDEC@Stephan-P1G2 MINGW64 /d/Projects/gulp-ES6 (main)
+$ npm audit
+# npm audit report
+
+lodash.pick  >=4.0.0
+Severity: high
+Prototype Pollution in lodash - https://github.com/advisories/GHSA-p6mc-m468-83gw
+fix available via `npm audit fix --force`
+Will install gulp-minify-inline@0.2.1, which is a breaking change
+node_modules/lodash.pick
+  cheerio  0.22.0
+  Depends on vulnerable versions of lodash.pick
+  node_modules/cheerio
+    gulp-minify-inline  >=1.0.0
+    Depends on vulnerable versions of cheerio
+    node_modules/gulp-minify-inline
+
+3 high severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+```
 
 ### current devDependencies
 ```json
+  "author": "Stephan",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/eslint-parser": "^7.25.9",
@@ -20,11 +65,11 @@
     "gulp-eslint": "^6.0.0",
     "gulp-file-include": "^2.3.0",
     "gulp-html-replace": "^1.6.2",
-    "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^8.0.0",
     "gulp-json-format": "^2.0.0",
     "gulp-jsonminify": "^1.1.0",
+    "gulp-minifier": "^3.5.0",
     "gulp-minify-inline": "^1.1.0",
     "gulp-sass": "^6.0.0",
     "gulp-sourcemaps": "^3.0.0",
