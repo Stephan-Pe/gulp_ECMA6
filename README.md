@@ -1,5 +1,14 @@
 # gulp_ESNEXT
 
+Last update: 1/2/2025 use ", {encoding: false}" on regular functions, otherwise your files might be corrupted
+
+```js
+function processVideoFiles() {
+  return gulp.src(VIDEO_SRC, { encoding: false })
+    .pipe(gulp.dest(VIDEO_DEST));
+}
+```
+
 If you can live without mini- or uglifying inline you will have 0 vulnerabilities and you are good to go ;-) Happy coding!
 
 ```bash
